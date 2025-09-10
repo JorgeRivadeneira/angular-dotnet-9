@@ -28,7 +28,9 @@
     </div>   
     
     <div>
-        <button mat-flat-button color = "warn">Limpiar</button>
+        <button (click)="limpiar()" mat-flat-button color = "warn">Limpiar</button>
     </div>
 
 </form>
+
+<app-listado-peliculas [peliculas]="peliculas"></app-listado-peliculas>

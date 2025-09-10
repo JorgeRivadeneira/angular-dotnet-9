@@ -23,7 +23,15 @@ export class EditarPeliculaComponent {
   generosNoSeleccionados: SelectorMultipleDTO[] = [
     { llave: 1, valor: 'Drama' },    
     { llave: 3, valor: 'Comedia' }
-  ]    
+  ];
+  
+  cinesSeleccionados: SelectorMultipleDTO[] = [
+    { llave: 3, valor: 'Super Cines' }
+  ];
+  cinesNoSeleccionados: SelectorMultipleDTO[] = [
+    { llave: 1, valor: 'Star Cines' },
+    { llave: 2, valor: 'Multicines' },
+  ]  
 
   guardarCambios(pelicula: PeliculaCreacionDTO){
     console.log(`Editando Película`, pelicula);

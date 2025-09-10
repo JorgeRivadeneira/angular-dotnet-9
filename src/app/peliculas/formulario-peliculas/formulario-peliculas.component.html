@@ -22,6 +22,11 @@
         [urlImagenActual]="modelo?.poster" (archivoSeleccionado)="archivoSeleccionado($event)">
     </app-input-img>
 
+    <app-selector-multiple [Seleccionados]="generosSeleccionados" 
+        [NoSeleccionados]="generosNoSeleccionados"         
+        titulo="Géneros">
+    </app-selector-multiple>
+
     <div class="contenedor-botones">
         <button  type="submit" mat-flat-button [disabled]="form.invalid">Guardar Cambios</button>
         <a mat-stroked-button routerLink="/">Cancelar</a>

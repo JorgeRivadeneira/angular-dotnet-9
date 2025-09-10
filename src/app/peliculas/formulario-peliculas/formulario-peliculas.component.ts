@@ -8,11 +8,13 @@ import { RouterLink } from '@angular/router';
 import { InputImgComponent } from '../../compartidos/componentes/input-img/input-img.component';
 import { PeliculaCreacionDTO, PeliculaDTO } from '../peliculas';
 import moment from 'moment';
+import { SelectorMultipleDTO } from '../../compartidos/componentes/selector-multiple/selectorMultipleModelo';
+import { SelectorMultipleComponent } from "../../compartidos/componentes/selector-multiple/selector-multiple.component";
 
 @Component({
   selector: 'app-formulario-peliculas',
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, 
-    MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent],
+  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule,
+    MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent],
   templateUrl: './formulario-peliculas.component.html',
   styleUrl: './formulario-peliculas.component.css'
 })
@@ -36,6 +38,10 @@ export class FormularioPeliculasComponent implements OnInit {
 
     const pelicula = this.form.value as PeliculaCreacionDTO;
     pelicula.fechaLanzamiento = moment(pelicula.fechaLanzamiento).toDate();
+
+    const generosIds = this.generosSeleccionados.map(valor => valor.llave);
+    pelicula.generosIds = generosIds;
+
     this.posteoFormulario.emit(pelicula);
   }
 
@@ -53,7 +59,13 @@ export class FormularioPeliculasComponent implements OnInit {
       return 'El campo fecha de lanzamiento es requerido';
     }
     return '';
-  }  
+  }
+
+  @Input({required: true})
+  generosNoSeleccionados!: SelectorMultipleDTO[];
+
+  @Input({required: true})
+  generosSeleccionados!: SelectorMultipleDTO[];
 
   @Input()
   modelo?: PeliculaDTO;

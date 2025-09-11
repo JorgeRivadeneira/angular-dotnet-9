@@ -10,3 +10,10 @@ export interface ActorCreacionDTO{
     fechaNacimiento: Date;
     foto?: File;
 }
+
+export interface actorAutoComnpleteDTO{
+    id: number;
+    nombre: string;
+    foto?: string;
+    personaje: string;
+}

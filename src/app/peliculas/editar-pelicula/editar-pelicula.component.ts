@@ -31,7 +31,11 @@ export class EditarPeliculaComponent {
   cinesNoSeleccionados: SelectorMultipleDTO[] = [
     { llave: 1, valor: 'Star Cines' },
     { llave: 2, valor: 'Multicines' },
-  ]  
+  ]
+  
+  actoresSeleccionados = [
+    {id: 1, nombre: 'Tom Hanks', personaje: 'Woody', foto: 'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTlpRBR9Lsf2J_zpiZvmHgz-t_8YyxFcKKO6X0TN3KAkTmRWWR0U7-0T6pM5QJh9mKTD6Fz37X1GpZpYa03rrgRHR3tZIAqK2Qg8AQzyanmgWJiRJAgBTGsHA1u7u-q3OD86vxEJnJZxmw'},    
+  ];
 
   guardarCambios(pelicula: PeliculaCreacionDTO){
     console.log(`Editando Película`, pelicula);
